@@ -3,7 +3,7 @@ const app = express();
 const port = 8000;
 const cors = require('cors');
 const bodyParser = require('body-parser');
-const connectDB = require('./config/dbConnections');
+const connectDB = require('./config/database');
 const userRoute = require('./routes/userRoute');
 const LeaveRoute = require('./routes/LeaveRoute');
 
