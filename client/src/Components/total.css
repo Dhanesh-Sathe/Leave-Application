@@ -1,0 +1,22 @@
+.header {
+    background: radial-gradient(circle, rgb(38, 0, 255), rgb(212, 0, 255));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-fill-color: transparent;
+}  
+
+.bgColor {
+    background: radial-gradient(circle, rgb(38, 0, 255), rgb(212, 0, 255));
+}
+
+/* Smooth focus outline */
+input:focus {
+    outline: none;
+    box-shadow: 0 0 8px rgba(0, 123, 255, 0.5);
+  }
+  
+  /* Transition for overlay effect */
+  .overlay {
+    transition: transform 0.5s ease-in-out;
+  }
+  
