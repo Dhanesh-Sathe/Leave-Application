@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { FaFileUpload } from "react-icons/fa";
+const API_URL = process.env.REACT_APP_API_URL;
 
 const LeaveApplicationForm = () => {
   const [isLoading, setIsLoading] = useState(false);
@@ -60,7 +61,7 @@ const LeaveApplicationForm = () => {
     });
 
     try {
-      const response = await fetch("http://localhost:8000/api/leave/", {
+      const response = await fetch(`${API_URL}/api/leave/`, {
         method: "POST",
         body: formDataToSend,
       });

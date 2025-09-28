@@ -44,6 +44,9 @@ const departments = [
 //   width: 1px;
 // `;
 
+
+const API_URL = process.env.REACT_APP_API_URL;
+
 const ProfileCompletion = () => {
   const navigate = useNavigate();
   const [activeStep, setActiveStep] = useState(0);
@@ -131,7 +134,7 @@ const ProfileCompletion = () => {
       }
 
       // Convert form data to JSON instead of FormData
-      const response = await fetch('http://localhost:8000/api/profile', {
+      const response = await fetch(`${API_URL}/api/profile`, {
         method: 'PUT',
         headers: {
           'Authorization': token,

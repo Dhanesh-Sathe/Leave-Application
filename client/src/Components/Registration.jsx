@@ -4,6 +4,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { motion } from "framer-motion";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+
 import {
   faGoogle,
   faFacebook,
@@ -11,6 +12,9 @@ import {
   faLinkedin,
 } from "@fortawesome/free-brands-svg-icons";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
+
+const API_URL = process.env.REACT_APP_API_URL;
+
 
 const Register = () => {
   const navigate = useNavigate();
@@ -50,7 +54,7 @@ const Register = () => {
 
     setIsLoading(true);
     try {
-      const response = await fetch('http://localhost:8000/api/signup/', {
+      const response = await fetch(`${API_URL}/api/signup/`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'

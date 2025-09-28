@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import { FaSpinner, FaDownload, FaEye, FaCalendarAlt } from "react-icons/fa";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+const API_URL = process.env.REACT_APP_API_URL;
 
 const LeaveStatusLanding = () => {
   const [leaveRequests, setLeaveRequests] = useState([]);
@@ -14,7 +15,7 @@ const LeaveStatusLanding = () => {
     const fetchLeaveStatus = async () => {
       try {
         setIsLoading(true);
-        const response = await fetch("http://localhost:8000/api/leave/");
+        const response = await fetch(`${API_URL}/api/leave/`);
         const data = await response.json();
         setLeaveRequests(data.data);
       } catch (error) {

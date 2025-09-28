@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+const API_URL = process.env.REACT_APP_API_URL;
 
 const ManagerDashboard = ({ user }) => {
     const [pendingLeaves, setPendingLeaves] = useState([]);
@@ -12,7 +13,7 @@ const ManagerDashboard = ({ user }) => {
 
     const fetchPendingLeaves = async () => {
         try {
-            const response = await fetch('http://localhost:8000/api/leaves/pending', {
+            const response = await fetch(`${API_URL}/api/leaves/pending`, {
                 headers: {
                     'Authorization': localStorage.getItem('token')
                 }
@@ -28,7 +29,7 @@ const ManagerDashboard = ({ user }) => {
 
     const fetchTeamStats = async () => {
         try {
-            const response = await fetch('http://localhost:8000/api/team/stats', {
+            const response = await fetch(`${API_URL}/api/team/stats`, {
                 headers: {
                     'Authorization': localStorage.getItem('token')
                 }
@@ -44,7 +45,7 @@ const ManagerDashboard = ({ user }) => {
 
     const handleLeaveAction = async (leaveId, action, remarks = '') => {
         try {
-            const response = await fetch(`http://localhost:8000/api/leave/${leaveId}/status`, {
+            const response = await fetch(`${API_URL}/api/leave/${leaveId}/status`, {
                 method: 'PUT',
                 headers: {
                     'Content-Type': 'application/json',

@@ -4,6 +4,7 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { motion } from "framer-motion";
+
 import {
   faGoogle,
   faFacebook,
@@ -11,6 +12,8 @@ import {
   faLinkedin,
 } from "@fortawesome/free-brands-svg-icons";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
+
+const API_URL = process.env.REACT_APP_API_URL;
 
 const LoginPage = () => {
   const navigate = useNavigate();
@@ -68,7 +71,7 @@ const LoginPage = () => {
     setIsLoading(true);
     
     try {
-      const response = await fetch("http://localhost:8000/api/login", {
+      const response = await fetch(`${API_URL}/api/login`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'

@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+const API_URL = process.env.REACT_APP_API_URL;
 
 const EmployeeDashboard = ({ user }) => {
     const [leaveStats, setLeaveStats] = useState(null);
@@ -12,7 +13,7 @@ const EmployeeDashboard = ({ user }) => {
 
     const fetchLeaveStats = async () => {
         try {
-            const response = await fetch('http://localhost:8000/api/leaves/stats', {
+            const response = await fetch(`${API_URL}/api/leaves/stats`, {
                 headers: {
                     'Authorization': localStorage.getItem('token')
                 }
@@ -28,7 +29,7 @@ const EmployeeDashboard = ({ user }) => {
 
     const fetchRecentLeaves = async () => {
         try {
-            const response = await fetch('http://localhost:8000/api/leaves', {
+            const response = await fetch(`${API_URL}/api/leaves`, {
                 headers: {
                     'Authorization': localStorage.getItem('token')
                 }
