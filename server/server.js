@@ -14,7 +14,9 @@ require('dotenv').config();
 app.use(express.json());
 
 // Enable cors
-app.use(cors());
+app.use(cors({
+    origin: ['http://localhost:3000', 'https://leave-application-eight.vercel.app']
+}));
 app.use(bodyParser.json());
 
 // Routes
